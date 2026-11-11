@@ -1,0 +1,392 @@
+@charset "UTF-8";
+@font-face {
+    font-family: "pinkycupid";
+    src: url("Pinky\ Cupid.otf") format("truetype");
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    color: #4a3b32;
+    background-color: #fffaf7; /* Fundo suave em tom pastel */
+    line-height: 1.6;
+}
+
+h1, h2, h3 {
+    font-family: 'Playfair Display', serif;
+    color: #5c3d2e;
+}
+
+/* Menu de Navegação Superior (Navbar) */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 8%;
+    background-color: #f9c9c9;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo a {
+    font-family: pinkycupid;
+    font-size: 3.5rem;
+    font-weight: 800;
+    text-decoration: none;
+    color: #5c3d2e;
+}
+
+.logo span {
+    color: #d14d72; /* Tom rosa/morango para destaque */
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    align-items: center;
+}
+
+.nav-links li {
+    margin-left: 25px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #61483b;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover, .nav-links a.active {
+    color: #d14d72;
+}
+
+/* Botão Destacado no Menu */
+.btn-nav {
+    background-color: #d14d72;
+    color: #ffffff !important;
+    padding: 8px 18px;
+    border-radius: 20px;
+    transition: background 0.3s !important;
+}
+
+.btn-nav:hover {
+    background-color: #abab46;
+}
+
+/* Banner Principal (Hero Section) */
+.hero {
+    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), 
+                url('https://unsplash.com') no-crop center/cover;
+    height: 350px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #b39393;
+    padding: 0 20px;
+}
+
+.hero-content h1 {
+    color: #613d3d;
+    font-size: 2.8rem;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    max-width: 700px;
+    margin: 0 auto 30px auto;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+.btn-main {
+    background-color: #d14d72;
+    color: #ffffff;
+    text-decoration: none;
+    padding: 12px 30px;
+    font-weight: bold;
+    border-radius: 25px;
+    transition: background 0.3s;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.btn-main:hover {
+    background-color: #b23b5c;
+}
+
+/* Seção Sobre Nós */
+.about-section {
+    padding: 60px 15%;
+    text-align: center;
+    background-color: #ffffff;
+}
+
+.about-section h2 {
+    font-size: 2.2rem;
+    margin-bottom: 20px;
+}
+
+.about-section p {
+    font-size: 1.05rem;
+    margin-bottom: 15px;
+    color: #61483b;
+}
+
+/* Grid de Categorias de Produtos */
+.products-preview {
+    padding: 60px 8%;
+    text-align: center;
+}
+
+.products-preview h2 {
+    font-size: 2.2rem;
+    margin-bottom: 40px;
+}
+
+.grid-categories {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+/* Cards Individuais de Produtos */
+.card {
+    background-color: #ffffff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+}
+
+.card h3 {
+    margin: 20px 0 10px 0;
+    font-size: 1.4rem;
+}
+
+.card p {
+    padding: 0 20px 20px 20px;
+    font-size: 0.95rem;
+    color: #7a6356;
+}
+
+.btn-card {
+    display: inline-block;
+    margin-bottom: 25px;
+    color: #d14d72;
+    text-decoration: none;
+    font-weight: bold;
+    border-bottom: 2px solid transparent;
+    transition: border 0.3s;
+}
+
+.btn-card:hover {
+    border-bottom: 2px solid #d14d72;
+}
+
+/* Rodapé */
+footer {
+    background-color: #36251c;
+    color: #f7e6df;
+    text-align: center;
+    padding: 30px 20px;
+    font-size: 0.9rem;
+}
+
+footer p {
+    margin-bottom: 5px;
+}
+/* Cabecera de la Categoría */
+.category-header {
+    text-align: center;
+    padding: 60px 20px 40px 20px;
+    background-color: #ffffff;
+}
+
+.category-header h1 {
+    font-size: 2.8rem;
+    margin-bottom: 15px;
+    color: #5c3d2e;
+}
+
+.category-header p {
+    font-size: 1.1rem;
+    color: #7a6356;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Sección del Catálogo */
+.catalog-section {
+    padding: 40px 8% 80px 8%;
+}
+
+/* Cuadrícula de Productos (3 columnas en PC, 1 en Celular) */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+}
+
+/* Ítems del Producto Individual */
+.product-item {
+    background-color: #ffffff;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.04);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.product-item:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 25px rgba(209, 77, 114, 0.1); /* Sombra suave rosa al pasar el mouse */
+}
+
+/* Ajuste de Imágenes */
+.product-item img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+}
+
+/* Bloque de Información del Producto */
+.product-info {
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1; /* Empuja el botón hacia abajo para que queden alineados */
+    justify-content: space-between;
+}
+
+.product-info h3 {
+    font-size: 1.5rem;
+    margin-bottom: 12px;
+    color: #5c3d2e;
+}
+
+.product-info p {
+    font-size: 0.95rem;
+    color: #61483b;
+    margin-bottom: 25px;
+    line-height: 1.6;
+}
+
+/* Botón de Encomendar */
+.btn-order {
+    display: block;
+    text-align: center;
+    background-color: #d14d72;
+    color: #ffffff;
+    text-decoration: none;
+    padding: 12px;
+    font-weight: 600;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-order:hover {
+    background-color: #b23b5c;
+}
+/* ==========================================================================
+   ESTILOS DA PÁGINA DE PEDIDOS
+   ========================================================================== */
+.order-section {
+    padding: 60px 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.order-container {
+    background-color: #ffffff;
+    max-width: 600px;
+    width: 100%;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
+}
+
+.order-container h2 {
+    font-size: 2.2rem;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.order-container p {
+    text-align: center;
+    color: #7a6356;
+    margin-bottom: 30px;
+    font-size: 0.95rem;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: #5c3d2e;
+    font-size: 0.9rem;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #f3e9e5;
+    border-radius: 8px;
+    font-family: 'Montserrat', sans-serif;
+    color: #4a3b32;
+    background-color: #fffaf7;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: #d14d72; /* Borda rosa ao clicar no campo */
+}
+
+.btn-submit {
+    display: block;
+    width: 100%;
+    background-color: #25d366; /* Verde do WhatsApp */
+    color: #ffffff;
+    border: none;
+    padding: 15px;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    font-family: 'Montserrat', sans-serif;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 10px rgba(37, 211, 102, 0.2);
+}
+
+.btn-submit:hover {
+    background-color: #128c7e; /* Verde escuro do WhatsApp */
+    transform: translateY(-2px);
+}

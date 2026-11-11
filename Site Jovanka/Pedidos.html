@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fazer Pedido - Doces que Aquecem o Coração</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://googleapis.com">
+    <link rel="preconnect" href="https://gstatic.com" crossorigin>
+    <link href="https://googleapis.com" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Menu de Navegação Superior -->
+    <header class="navbar">
+        <div class="logo">
+            <a href="index.html">Doces que Aquecem <span>o Coração</span> </a>
+        </div>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="index.html">Início</a></li>
+                <li><a href="Bolos.html">Bolos</a></li>
+                <li><a href="Doces.html">Doces</a></li>
+                <li><a href="Salgados.html">Salgados</a></li>
+                <li><a href="Pedidos.html" class="btn-nav active">Fazer Pedido</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Seção do Formulário -->
+    <section class="order-section">
+        <div class="order-container">
+            <h2>Monte seu Pedido</h2>
+            <p>Preencha os campos abaixo e envie o pedido diretamente para o nosso WhatsApp para combinarmos os detalhes!</p>
+            
+            <form id="orderForm">
+                <!-- Nome -->
+                <div class="form-group">
+                    <label for="name">Seu Nome:</label>
+                    <input type="text" id="name" required placeholder="Digite seu nome completo">
+                </div>
+
+                <!-- Produto Desejado -->
+                <div class="form-group">
+                    <label for="product">O que você deseja encomendar?</label>
+                    <select id="product" required>
+                        <option value="" disabled selected>Selecione uma delícia...</option>
+                        <optgroup label="Bolos">
+                            <option value="Bolo Sensação">Bolo Sensação</option>
+                            <option value="Rocambole de Chocolate">Rocambole de Chocolate</option>
+                            <option value="Red Velvet">Red Velvet</option>
+                            <option value="Doce de Leite com Nozes">Doce de Leite com Nozes</option>
+                            <option value="Bolo Ninho com Nutella">Bolo Ninho com Nutella</option>
+                            <option value="Bolo de Coco Gelado">Bolo de Coco Gelado</option>
+                        </optgroup>
+                        <optgroup label="Doces">
+                            <option value="Brigadeiro Tradicional Gourmet">Brigadeiro Tradicional Gourmet</option>
+                            <option value="Beijinho de Coco">Beijinho de Coco</option>
+                            <option value="Brownie com Nutella">Brownie com Nutella</option>
+                            <option value="Coxinha de Brigadeiro com Morango">Coxinha de Brigadeiro com Morango</option>
+                            <option value="Palha Italiana Tradicional">Palha Italiana Tradicional</option>
+                            <option value="Pudim de Leite Condensado">Pudim de Leite Condensado</option>
+                        </optgroup>
+                        <optgroup label="Salgados">
+                            <option value="Coxinha de Frango com Catupiry">Coxinha de Frango com Catupiry</option>
+                            <option value="Quibe Tradicional">Quibe Tradicional</option>
+                            <option value="Bolinha de Queijo">Bolinha de Queijo</option>
+                            <option value="Empada de Palmito">Empada de Palmito</option>
+                            <option value="Pastel de Forno de Carne">Pastel de Forno de Carne</option>
+                            <option value="Enroladinho de Presunto e Queijo">Enroladinho de Presunto e Queijo</option>
+                        </optgroup>
+                    </select>
+                </div>
+
+                <!-- Quantidade -->
+                <div class="form-group">
+                    <label for="quantity">Quantidade / Tamanho:</label>
+                    <input type="text" id="quantity" required placeholder="Ex: 1 bolo inteiro, 50 unidades, etc.">
+                </div>
+
+                <!-- Tipo de Entrega -->
+                <div class="form-group">
+                    <label for="delivery">Como prefere receber?</label>
+                    <select id="delivery" required>
+                        <option value="Retirada no Local">Vou retirar no local (Centro)</option>
+                        <option value="Entrega a Domicílio">Quero entrega a domicílio</option>
+                    </select>
+                </div>
+
+                <!-- Endereço (Opcional se for retirada) -->
+                <div class="form-group">
+                    <label for="address">Endereço de Entrega (se houver):</label>
+                    <textarea id="address" rows="2" placeholder="Rua, número, bairro e pontos de referência"></textarea>
+                </div>
+
+                <!-- Botão de Envio -->
+                <button type="button" class="btn-submit" onclick="sendToWhatsApp()">Enviar Pedido via WhatsApp</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Rodapé -->
+    <footer>
+        <div class="footer-container">
+            <p>&copy; 2026 Doces que Aquecem o Coração - Todos os direitos reservados.</p>
+            <p>Rua dos Doces, 123 - Centro, Cuiabá-MT | Telefone / WhatsApp: (65) 99999-9999</p>
+        </div>
+    </footer>
+
+    <!-- Script mágico para integrar com o WhatsApp -->
+    <script>
+        function sendToWhatsApp() {
+            // Número do seu WhatsApp (DDD + Número, tudo junto, sem espaços nem traços)
+            // Substitua pelo seu número real!
+            const phoneNumber = "5565999999999"; 
+
+            // Pegar os valores digitados no formulário
+            const name = document.getElementById('name').value;
+            const product = document.getElementById('product').value;
+            const quantity = document.getElementById('quantity').value;
+            const delivery = document.getElementById('delivery').value;
+            const address = document.getElementById('address').value;
+
+            // Validar campos obrigatórios antes de enviar
+            if (!name || !product || !quantity || !delivery) {
+                alert("Por favor, preencha todos os campos obrigatórios.");
+                return;
+            }
+
+            // Montar a mensagem de texto pulando linhas (%0A serve para quebrar linha no WhatsApp)
+            let message = `*Novo Pedido - Doces que Aquecem o Coração* %0A%0A`;
+            message += `*Nome do Cliente:* ${name} %0A`;
+            message += `*Produto:* ${product} %0A`;
+            message += `*Quantidade/Tamanho:* ${quantity} %0A`;
+            message += `*Forma de Entrega:* ${delivery} %0A`;
+            
+            if(address) {
+                message += `*Endereço:* ${address} %0A`;
+            }
+
+            // Criar o link final do WhatsApp
+            const whatsappURL = `https://whatsapp.com{phoneNumber}&text=${message}`;
+
+            // Abrir em uma nova aba do navegador
+            window.open(whatsappURL, '_blank');
+        }
+    </script>
+</body>
+</html>
